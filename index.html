@@ -876,6 +876,442 @@
       font-size: 10px;
       font-weight: 700;
     }
+
+    /* ── R1: Smart contextual CTA banner ── */
+    .smart-cta {
+      background: linear-gradient(135deg, #1a1aff 0%, #3b3bff 60%, #5555ff 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .smart-cta::before {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .smart-cta-left { flex: 1; }
+    .smart-cta-greeting {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-bottom: 6px;
+    }
+    .smart-cta-headline {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .smart-cta-sub {
+      font-size: 12px;
+      opacity: 0.75;
+      margin-bottom: 16px;
+    }
+    .smart-cta-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .cta-primary {
+      background: #fff;
+      color: #1a1aff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      transition: all .15s;
+    }
+    .cta-primary:hover { background: #eef0ff; }
+    .cta-secondary {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all .15s;
+    }
+    .cta-secondary:hover { background: rgba(255,255,255,0.25); }
+    .smart-cta-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    .cta-stat {
+      background: rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cta-stat .num {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* ── R2: Brief cards ── */
+    .brief-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      border-left: 4px solid #1a1aff;
+    }
+    .brief-card.urgent { border-left-color: #f44336; }
+    .brief-card.on-track { border-left-color: #4caf50; }
+    .brief-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .brief-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .brief-due {
+      font-size: 11px;
+      color: #888;
+      background: #f0f1f5;
+      padding: 3px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .brief-action-needed {
+      background: #fff3e0;
+      color: #e65100;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .brief-action-needed.review { background: #fce4ec; color: #c62828; }
+    .brief-pipeline {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 14px 0 8px;
+    }
+    .pipeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      position: relative;
+    }
+    .pipeline-step::after {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: 0;
+    }
+    .pipeline-step:last-child::after { display: none; }
+    .pipeline-step.done::after { background: #4caf50; }
+    .pipeline-step.active::after { background: #2196f3; }
+    .pipeline-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      position: relative;
+    }
+    .pipeline-dot svg { width: 14px; height: 14px; fill: #fff; }
+    .pipeline-step.done .pipeline-dot { background: #4caf50; }
+    .pipeline-step.active .pipeline-dot { background: #2196f3; animation: pulse 2s infinite; }
+    .pipeline-step.waiting .pipeline-dot { background: #e0e0e0; }
+    .pipeline-label {
+      font-size: 9px;
+      color: #888;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .pipeline-step.done .pipeline-label { color: #4caf50; }
+    .pipeline-step.active .pipeline-label { color: #2196f3; }
+    .brief-agents {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 11px;
+      color: #888;
+    }
+    .agent-dots {
+      display: flex;
+      gap: -4px;
+    }
+    .agent-dot {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: -6px;
+    }
+    .agent-dot:first-child { margin-left: 0; }
+    .agent-dot svg { width: 10px; height: 10px; fill: #fff; }
+    .brief-btn {
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #1a1aff;
+      color: #fff;
+      border: none;
+      margin-top: 10px;
+      transition: all .15s;
+    }
+    .brief-btn:hover { background: #1515cc; }
+    .brief-btn.outline {
+      background: transparent;
+      color: #1a1aff;
+      border: 1px solid #1a1aff;
+    }
+
+    /* ── R3: Compact agent summary ── */
+    .agent-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .agent-group-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: #f8f9fc;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      transition: all .15s;
+      cursor: pointer;
+    }
+    .agent-group-chip:hover { border-color: #1a1aff; background: #f0f0ff; }
+    .agent-group-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .agent-group-icon svg { width: 16px; height: 16px; fill: #fff; }
+    .agent-group-info { flex: 1; }
+    .agent-group-name { font-size: 12px; font-weight: 600; color: #1a1a2e; }
+    .agent-group-count { font-size: 10px; color: #888; }
+    .agent-group-active {
+      font-size: 9px;
+      color: #4caf50;
+      font-weight: 600;
+    }
+    .agent-explore-link {
+      font-size: 12px;
+      color: #1a1aff;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    /* ── R4: Collapsible sections ── */
+    .collapsible-section {
+      margin-bottom: 20px;
+    }
+    .collapsible-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .collapsible-header:hover { background: #fafafe; }
+    .collapsible-header .ch-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .collapsible-header .ch-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: #f0f1f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .collapsible-header .ch-icon svg { width: 16px; height: 16px; fill: #888; }
+    .collapsible-header .ch-title { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+    .collapsible-header .ch-badge {
+      font-size: 11px;
+      color: #888;
+      background: #f0f1f5;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .collapsible-header .ch-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .collapsible-header .ch-chevron {
+      transition: transform .2s;
+      color: #888;
+    }
+    .collapsible-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .collapsible-section.open .collapsible-body {
+      max-height: 2000px;
+    }
+    .collapsible-section.open .ch-chevron {
+      transform: rotate(180deg);
+    }
+    .collapsible-inner {
+      padding: 16px 20px 20px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+    }
+    .collapsible-section.open .collapsible-header {
+      border-radius: 12px 12px 0 0;
+    }
+
+    /* ── R5: Activity feed in conv panel ── */
+    .activity-feed {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+    }
+    .activity-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      margin-top: 8px;
+    }
+    .activity-section-label:first-child { margin-top: 0; }
+    .activity-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .activity-icon svg { width: 14px; height: 14px; fill: #fff; }
+    .activity-icon.blue { background: #1a1aff; }
+    .activity-icon.green { background: #4caf50; }
+    .activity-icon.amber { background: #ff9800; }
+    .activity-icon.red { background: #f44336; }
+    .activity-icon.purple { background: #7c4dff; }
+    .activity-content { flex: 1; }
+    .activity-text {
+      font-size: 12px;
+      color: #1a1a2e;
+      line-height: 1.4;
+    }
+    .activity-text strong { font-weight: 600; }
+    .activity-time {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 2px;
+    }
+    .activity-action-btn {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      background: #eef0ff;
+      color: #1a1aff;
+      border: none;
+      margin-top: 6px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .activity-action-btn:hover { background: #dde0ff; }
+    .activity-live-dot {
+      width: 6px; height: 6px;
+      background: #4caf50;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+      margin-right: 4px;
+    }
+
+    /* ── Demo toolbar (floated) ── */
+    .demo-toolbar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      border-radius: 12px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 200;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      font-size: 12px;
+    }
+    .demo-toolbar button {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      transition: all .15s;
+    }
+    .demo-toolbar button:hover { background: rgba(255,255,255,0.1); }
+    .demo-toolbar .demo-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.5;
+      margin-right: 4px;
+    }
   </style>
 </head>
 <body>
@@ -915,25 +1351,21 @@
     <!-- ── Main Content ── -->
     <main class="main-content">
 
-      <!-- Hero Banner -->
-      <div class="hero-banner">
-        <h1>Good morning. Talk through your day?</h1>
-        <p>"I'll walk you through what's pending. Say 'go ahead' or 'don't worry' — I'll keep up."</p>
-        <div class="hero-mic">
-          <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1 1.93c-3.94-.49-7-3.85-7-7.93h2c0 3.31 2.69 6 6 6s6-2.69 6-6h2c0 4.08-3.06 7.44-7 7.93V20h4v2H8v-2h4v-4.07z"/></svg>
+      <!-- R1: Smart Contextual CTA (replaces hero + gm-card) -->
+      <div class="smart-cta">
+        <div class="smart-cta-left">
+          <div class="smart-cta-greeting">Good morning, Sarah — Wed 22 Apr, 10:30</div>
+          <div class="smart-cta-headline">The Q2 Board Deck has 2 items waiting for your review.</div>
+          <div class="smart-cta-sub">Legal flagged forward-looking language on slides 3 &amp; 7. 3 agents contributed overnight.</div>
+          <div class="smart-cta-actions">
+            <button class="cta-primary">Open Brief</button>
+            <button class="cta-secondary">Ask CoS about it</button>
+          </div>
         </div>
-      </div>
-
-      <!-- Good Morning Sarah -->
-      <div class="gm-card">
-        <div class="gm-left">
-          <h2>Good morning, Sarah.</h2>
-          <p>Here's the state of your team as of Wednesday 22 Apr, 10:30.</p>
-        </div>
-        <div class="gm-actions">
-          <button class="gm-btn outline">⏩ Advance clock +30m</button>
-          <button class="gm-btn white">📄 Generate Day Close</button>
-          <button class="gm-btn danger">🔄 Reset demo</button>
+        <div class="smart-cta-right">
+          <div class="cta-stat"><span class="num">8</span> actions completed overnight</div>
+          <div class="cta-stat"><span class="num">4</span> artifacts ready</div>
+          <div class="cta-stat"><span class="num">1</span> decision needed</div>
         </div>
       </div>
 
@@ -1020,316 +1452,231 @@
         <div class="inbox-status">INBOX ZERO. The CoS is watching the wire and will surface the next item here.</div>
       </div>
 
-      <!-- Pre-reads & Standing Plans -->
-      <div class="two-col">
-        <!-- Today's Pre-reads -->
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-title">Today's Pre-reads</div>
-              <div class="card-desc">Use pages the CoS prepared for your meetings.</div>
-            </div>
+      <!-- R2: Active Briefs (replaces Pre-reads + Standing Plans) -->
+      <div class="section-header" style="margin-top:4px;">
+        <span class="section-title">Active Briefs</span>
+        <button class="cta-secondary" style="color:#1a1aff;border-color:#1a1aff;padding:6px 16px;font-size:12px;">+ Start new brief</button>
+      </div>
+
+      <!-- Brief 1: Q2 Board Deck -->
+      <div class="brief-card urgent">
+        <div class="brief-header">
+          <div class="brief-title">Q2 Board Deck – May 14</div>
+          <span class="brief-due">Due in 9 days</span>
+        </div>
+        <div class="brief-action-needed review">⚠ Your review needed — Legal flagged 2 items</div>
+        <div class="brief-pipeline">
+          <div class="pipeline-step done">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="pipeline-label">Brief</div>
           </div>
-          <div class="preread-item">
-            <div class="preread-title">1:1 with David Kumar (VP Vaccines) @ 12:30</div>
-            <div class="preread-sub">Generated 15:21 from pre-read</div>
-            <a class="pre-read-link">see pre-read</a>
+          <div class="pipeline-step done">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="pipeline-label">Research</div>
+          </div>
+          <div class="pipeline-step done">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="pipeline-label">Draft</div>
+          </div>
+          <div class="pipeline-step active">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg></div>
+            <div class="pipeline-label">Legal</div>
+          </div>
+          <div class="pipeline-step waiting">
+            <div class="pipeline-dot"></div>
+            <div class="pipeline-label">Review</div>
+          </div>
+          <div class="pipeline-step waiting">
+            <div class="pipeline-dot"></div>
+            <div class="pipeline-label">Done</div>
           </div>
         </div>
-
-        <!-- Standing Plans -->
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-title">Standing Plans</div>
-              <div class="card-desc">Multi-day work the CoS is running for you.</div>
-            </div>
+        <div class="brief-agents">
+          <div class="agent-dots">
+            <div class="agent-dot" style="background:#667eea;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
+            <div class="agent-dot" style="background:#43a047;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
+            <div class="agent-dot" style="background:#ef5350;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
           </div>
+          <span>3 agents contributed · Researcher, Drafter, Legal</span>
+        </div>
+        <button class="brief-btn" style="margin-top:12px;">Review legal flags</button>
+      </div>
 
-          <div class="plan-item">
-            <div class="plan-header">
-              <div class="plan-title">Q2 Board Deck – May 14</div>
-              <div class="plan-date">due 2025-05-14</div>
-            </div>
-            <div class="plan-tags">
-              <span class="plan-tag red">Task: Legal review of forward-looking language</span>
-            </div>
-            <div class="plan-progress">
-              <div class="progress-bar done" style="flex:5;"></div>
-              <div class="progress-bar in-progress" style="flex:2;"></div>
-              <div class="progress-bar pending" style="flex:3;"></div>
-            </div>
-            <div class="plan-status-text">5 done · 2 open · tasks</div>
+      <!-- Brief 2: Winter Respiratory -->
+      <div class="brief-card on-track">
+        <div class="brief-header">
+          <div class="brief-title">Winter Respiratory – Launch Readiness</div>
+          <span class="brief-due">Due Jul 2</span>
+        </div>
+        <div class="brief-action-needed">Landing page build in progress</div>
+        <div class="brief-pipeline">
+          <div class="pipeline-step done">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="pipeline-label">Brief</div>
           </div>
-
-          <div class="plan-item">
-            <div class="plan-header">
-              <div class="plan-title">Winter Respiratory – Launch Readiness</div>
-              <div class="plan-date">due 2025-07-02</div>
-            </div>
-            <div class="plan-tags">
-              <span class="plan-tag amber">Task: Landing page build</span>
-            </div>
-            <div class="plan-progress">
-              <div class="progress-bar done" style="flex:4;"></div>
-              <div class="progress-bar overdue" style="flex:1;"></div>
-              <div class="progress-bar in-progress" style="flex:2;"></div>
-              <div class="progress-bar pending" style="flex:3;"></div>
-            </div>
-            <div class="plan-status-text">8 done · 3 open · tasks</div>
+          <div class="pipeline-step done">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="pipeline-label">Strategy</div>
           </div>
+          <div class="pipeline-step done">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="pipeline-label">Copy</div>
+          </div>
+          <div class="pipeline-step active">
+            <div class="pipeline-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg></div>
+            <div class="pipeline-label">Build</div>
+          </div>
+          <div class="pipeline-step waiting">
+            <div class="pipeline-dot"></div>
+            <div class="pipeline-label">QA</div>
+          </div>
+          <div class="pipeline-step waiting">
+            <div class="pipeline-dot"></div>
+            <div class="pipeline-label">Launch</div>
+          </div>
+        </div>
+        <div class="brief-agents">
+          <div class="agent-dots">
+            <div class="agent-dot" style="background:#667eea;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
+            <div class="agent-dot" style="background:#43a047;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
+            <div class="agent-dot" style="background:#ef5350;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
+            <div class="agent-dot" style="background:#ffa726;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
+            <div class="agent-dot" style="background:#7c4dff;"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg></div>
+          </div>
+          <span>5 agents · Designer building landing page</span>
+        </div>
+        <button class="brief-btn outline" style="margin-top:12px;">View brief</button>
+      </div>
 
-          <div class="plan-item">
-            <div class="plan-header">
-              <div class="plan-title">Team career conversations – Q2</div>
-              <div class="plan-date">due 2025-05-30</div>
+      <!-- Pre-read (kept compact, merged into briefs section) -->
+      <div class="card" style="margin-bottom:24px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:16px;">📄</span>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#1a1a2e;">Pre-read ready: 1:1 with David Kumar (VP Vaccines) @ 12:30</div>
+            <div style="font-size:11px;color:#888;">Generated from context · 1 page</div>
+          </div>
+        </div>
+        <a class="pre-read-link" style="font-size:12px;">Open pre-read →</a>
+      </div>
+
+      <!-- R4: Collapsible Yesterday's Day Close -->
+      <div class="collapsible-section" onclick="this.classList.toggle('open')">
+        <div class="collapsible-header">
+          <div class="ch-left">
+            <div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21a9 9 0 000-18z"/></svg></div>
+            <span class="ch-title">Yesterday's Day Close</span>
+          </div>
+          <div class="ch-right">
+            <span class="ch-badge">8 actions · 4 artifacts · ~2.5h saved</span>
+            <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </div>
+        </div>
+        <div class="collapsible-body">
+          <div class="collapsible-inner">
+            <div class="day-close-badge">2026-04-22 — Executed 8 action(s), 0 rejected, 0 queued, 0 blocked.</div>
+            <ul class="day-close-list">
+              <li>Replied to Enrico re: MLR memo — confirmed dose-adjusted claim, dropped infotainment claim → Draft saved to Outlook</li>
+              <li>Prepared slide 5 pipeline bullets for David's Q2 board deck → Artifact ready</li>
+              <li>Replied to Miguel — cited full adult cohort with '18–49' subgroup → Draft saved to Outlook</li>
+              <li>Created 1-page prep memo for 08:30 with David Kumar → Pre-read pack ready</li>
+              <li>Archived Digital Monday newsletter (standing rule) → Summarised</li>
+              <li>Created Planner task: Local Legal re Lotid adjustment KOM — due Friday</li>
+              <li>Advanced Q2 Board Deck brief → Pipeline slide step kicked off</li>
+              <li>Advanced Winter Respiratory brief → Claim selection step kicked off</li>
+            </ul>
+            <div class="day-close-links" style="margin-top:12px;">
+              <a href="#">Open full HTML report</a>
+              <a href="#">Download</a>
             </div>
-            <div class="plan-tags">
-              <span class="plan-tag amber">Task: Book Miguel's quarterly 1:1</span>
-            </div>
-            <div class="plan-status-text">4 done · 1 open · tasks</div>
           </div>
         </div>
       </div>
 
-      <!-- Memory & Yesterday's Day Close -->
-      <div class="two-col">
-        <!-- Memory -->
-        <div class="card">
-          <div class="memory-title-bar">
-            <div>
-              <h3>Memory</h3>
-              <div class="memory-subtitle">Everything the CoS remembers about you — provenance and forget.</div>
-            </div>
+      <!-- R4: Collapsible Memory -->
+      <div class="collapsible-section" onclick="this.classList.toggle('open')">
+        <div class="collapsible-header">
+          <div class="ch-left">
+            <div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+            <span class="ch-title">Memory &amp; Personalization</span>
           </div>
-
-          <!-- Pre-plan Calibration -->
-          <div class="calibration-header">
-            <span class="calibration-label">Pre-Plan Calibration</span>
-            <span class="calibration-badge">saved: 100% approved · 0 declined</span>
-          </div>
-          <div class="calibration-row">
-            <span class="label">Low (n:12)</span>
-            <div class="bar-container"><div class="bar-fill" style="width:100%"></div></div>
-            <span class="pct">— (0/0)</span>
-          </div>
-          <div class="calibration-row">
-            <span class="label">Medium (5-n:CL)</span>
-            <div class="bar-container"><div class="bar-fill" style="width:100%"></div></div>
-            <span class="pct">100% (2/2)</span>
-          </div>
-          <div class="calibration-row">
-            <span class="label">High (5-n:MBB)</span>
-            <div class="bar-container"><div class="bar-fill" style="width:100%"></div></div>
-            <span class="pct">100% (0/0)</span>
-          </div>
-          <div class="calibration-row">
-            <span class="label">Very high (n:UB)</span>
-            <div class="bar-container"><div class="bar-fill" style="width:100%"></div></div>
-            <span class="pct">100% (0/0)</span>
-          </div>
-
-          <!-- Profile Memory -->
-          <div class="memory-entry" style="margin-top:18px;">
-            <div class="memory-entry-label">
-              <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg></span>
-              <span style="color:#1a1aff;">PROFILE</span>
-              <span style="color:#4caf50;font-size:9px;margin-left:4px;">● pinned</span>
-            </div>
-            <p>Sarah writes in bullets, says 'what's the risk?' before signing off. Prefers decisions by end-of-day.</p>
-            <div class="memory-source">Source: persona feed — "chief.of.the.tumours@pfizer.com" · confidence 1.00</div>
-            <a class="forget-link">Forget this</a>
-          </div>
-
-          <!-- Semantic Memory -->
-          <div class="memory-entry semantic">
-            <div class="memory-entry-label">
-              <span class="icon" style="background:#7c4dff;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg></span>
-              <span style="color:#7c4dff;">SEMANTIC</span>
-            </div>
-            <p>Prize Sharma (Phase PM) prefers to hold a solid discussion on claim selection before 10:00 local — otherwise she cuts two versions and lets the team.</p>
-            <div class="memory-source">Source: injection – "Last time we decided at noon and I had to burn the afternoon making assets" · confidence 0.95</div>
-            <a class="forget-link">Forget this</a>
-          </div>
-
-          <!-- Episodic Memory -->
-          <div class="memory-entry episodic">
-            <div class="memory-entry-label">
-              <span class="icon" style="background:#ff6d00;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg></span>
-              <span style="color:#ff6d00;">EPISODIC</span>
-            </div>
+          <div class="ch-right">
+            <span class="ch-badge">CoS knows your bullet-point style &amp; decision preferences</span>
+            <svg class="ch-chevron" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
           </div>
         </div>
-
-        <!-- Yesterday's Day Close -->
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-title">Yesterday's Day Close</div>
-              <div class="card-desc">What the CoS did, what blocked, what's queued for today.</div>
+        <div class="collapsible-body">
+          <div class="collapsible-inner">
+            <div class="memory-entry" style="margin-top:0;">
+              <div class="memory-entry-label">
+                <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg></span>
+                <span style="color:#1a1aff;">PROFILE</span>
+                <span style="color:#4caf50;font-size:9px;margin-left:4px;">● pinned</span>
+              </div>
+              <p>Sarah writes in bullets, says 'what's the risk?' before signing off. Prefers decisions by end-of-day.</p>
+              <a class="forget-link">Forget this</a>
+            </div>
+            <div class="memory-entry semantic">
+              <div class="memory-entry-label">
+                <span class="icon" style="background:#7c4dff;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg></span>
+                <span style="color:#7c4dff;">LEARNED</span>
+              </div>
+              <p>Prize Sharma (Phase PM) prefers claim selection discussions before 10:00 local.</p>
+              <a class="forget-link">Forget this</a>
             </div>
           </div>
-          <div class="day-close-badge">2026-04-22 — Executed 8 action(s), 0 rejected, 0 queued, 0 blocked.</div>
-          <div class="day-close-links">
-            <a href="#">Open HTML</a>
-            <a href="#">Download</a>
-          </div>
-          <div class="run-label">Run</div>
-          <ul class="day-close-list">
-            <li>Reply to Enrico (MLR memo — confirm the dose-adjusted claim, drop one infotainment claim) → Draft reply saved to your Outlook drafts: artefact_produced: artefact/cos-drafts/cos_acks_mlr@d artefact/cos-drafted_ack_mlr.md</li>
-            <li>Two separate bullets for slide 5 of David's Q2 board deck → Draft artefact_produced: artefact/cos-drafts/aci_pipeline_bullets/btn artefact/cos-drafts/cos_pipeline_bullets.md</li>
-            <li>Reply to Miguel: cite the full adult cohort, add the '18–49' sub/top → Draft reply saved to your Outlook drafts: artefact/cos-drafts/cos_reply_miguel_replyto artefact/cos-drafts/cos_drafted_miguel_reply.md</li>
-            <li>1-pager prep/memo for your 08:30 with David Kumar → Pre-read pack ready: artefact/cos-drafts/cos_preread_dkumar_1p_brief</li>
-            <li>Archive the Digital Monday newsletter (your standing rule) → Archived and summarised in today's Day Close.</li>
-            <li>Task: Local Legal re: Lotid adjustment KOM — due Friday → New Planner task created in your pair.</li>
-            <li>Advance "Q2 Board Deck — May 14" → Pipeline slide → FFE 2307 headline numbers → Workflow step: kicked off, next step queued.</li>
-            <li>Advance "Winter Respiratory — Launch Readiness" → I-o-Ic claim selection → Note → Workflow step: kicked off, next step queued (t).</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Run a Scenario & My Team -->
-      <div class="two-col">
-        <!-- Run a Scenario -->
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-title">Run a scenario</div>
-              <div class="card-desc">Launch a multi-agent pipeline directly from the dashboard.</div>
+      <!-- R3: Compact Agent Summary (replaces flat roster) -->
+      <div class="card" style="margin-bottom:24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Your Agent Team</div>
+            <div class="card-desc">20 agents available · 3 currently active on your briefs</div>
+          </div>
+        </div>
+        <div class="agent-summary">
+          <div class="agent-group-chip">
+            <div class="agent-group-icon" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>
+            </div>
+            <div class="agent-group-info">
+              <div class="agent-group-name">Core Leadership</div>
+              <div class="agent-group-count">5 agents</div>
+              <div class="agent-group-active"><span class="activity-live-dot"></span>2 active now</div>
             </div>
           </div>
-          <div class="scenario-cards">
-            <div class="scenario-card">
-              <h4>UC1 · PfizerWeb Site (Debate)</h4>
-              <p>Sarah asks for a Winter Respiratory landing page. 8-agent debate: strategist, EPC, copywriter, designer, CMS, legal, Veeva distributor, Unit QA specialist. PfizerWeb head off.</p>
-              <button class="run-btn outline-blue">Run UC1</button>
+          <div class="agent-group-chip">
+            <div class="agent-group-icon" style="background:linear-gradient(135deg,#43a047,#1b5e20);">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>
             </div>
-            <div class="scenario-card">
-              <h4>UC2 · Internal board deck</h4>
-              <p>Blank-white for a board-ready Q2-slide HTML: crew Architect, validators, Agency drafts editor, Legal reviews, Christopher build/S, QA, paste.</p>
-              <button class="run-btn filled-blue">Run UC2</button>
+            <div class="agent-group-info">
+              <div class="agent-group-name">Ambient Intelligence</div>
+              <div class="agent-group-count">4 agents</div>
+              <div class="agent-group-active"><span class="activity-live-dot"></span>1 active now</div>
+            </div>
+          </div>
+          <div class="agent-group-chip">
+            <div class="agent-group-icon" style="background:linear-gradient(135deg,#ef5350,#b71c1c);">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>
+            </div>
+            <div class="agent-group-info">
+              <div class="agent-group-name">Development Team</div>
+              <div class="agent-group-count">7 agents</div>
+            </div>
+          </div>
+          <div class="agent-group-chip">
+            <div class="agent-group-icon" style="background:linear-gradient(135deg,#ffa726,#e65100);">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>
+            </div>
+            <div class="agent-group-info">
+              <div class="agent-group-name">Specialist Library</div>
+              <div class="agent-group-count">4 agents</div>
             </div>
           </div>
         </div>
-
-        <!-- My Team -->
-        <div class="card my-team">
-          <div class="card-header">
-            <div>
-              <div class="card-title">My Team</div>
-              <div class="card-desc">The scaleable the Chief of Staff can delegate to.</div>
-            </div>
-            <div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#888"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-            </div>
-          </div>
-
-          <div class="team-tabs">
-            <button class="team-tab active">PFIZER48
-              <span class="team-badge-count">20</span>
-            </button>
-            <button class="team-tab">SARAH'S AGENTS</button>
-            <button class="team-tab">SYSTEM AGENTS — PFIZERWEB</button>
-            <button class="team-tab">1</button>
-            <button class="team-tab">▸</button>
-          </div>
-
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
-            <span style="font-size:11px;font-weight:600;color:#1a1aff;">SARAH'S AGENTS</span>
-            <span class="team-badge-count">20</span>
-            <span style="font-size:11px;color:#888;margin-left:4px;">▸</span>
-          </div>
-
-          <div class="team-group-label">Orchestrator</div>
-          <div class="team-member">
-            <div class="team-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Chief of Staff</span>
-          </div>
-
-          <div class="team-group-label">Core Leadership Team</div>
-          <div class="team-member">
-            <div class="team-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Content Creator</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Project Manager</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Research Analyst</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Strategic Advisor</span>
-          </div>
-
-          <div class="team-group-label">Ambient Intelligence</div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#43a047,#1b5e20);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Gamma Drafter</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#43a047,#1b5e20);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Meeting Analyst</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#43a047,#1b5e20);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Researcher</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#43a047,#1b5e20);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Scheduler</span>
-          </div>
-
-          <div class="team-group-label">Development Team</div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#b71c1c);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Agency</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#b71c1c);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Architect</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#b71c1c);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Developer</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#b71c1c);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Designer</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#b71c1c);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">QA</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#b71c1c);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Scrum Master</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#b71c1c);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Tech Lead</span>
-          </div>
-
-          <div class="team-group-label">Specialist Library</div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ffa726,#e65100);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Data Analyst</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ffa726,#e65100);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Finance Analyst</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ffa726,#e65100);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Legal</span>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar" style="background:linear-gradient(135deg,#ffa726,#e65100);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" fill="#fff"/></svg></div>
-            <span class="team-member-name">Regulatory Affairs Specialist</span>
-          </div>
-        </div>
+        <a class="agent-explore-link">Explore all agents →</a>
       </div>
 
     </main>
@@ -1361,17 +1708,83 @@
         <span class="conv-filter">All activity <span class="x">✕</span></span>
       </div>
 
-      <div class="conv-body">
-        <div class="conv-placeholder">
-          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+      <!-- R5: Live Activity Feed (replaces empty chat placeholder) -->
+      <div class="activity-feed">
+        <div class="activity-section-label"><span class="activity-live-dot"></span>Live — agents working now</div>
+
+        <div class="activity-item">
+          <div class="activity-icon green">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>
+          </div>
+          <div class="activity-content">
+            <div class="activity-text"><strong>Designer</strong> is building the Winter Respiratory landing page</div>
+            <div class="activity-time">Started 12 min ago · 40% complete</div>
+          </div>
         </div>
-        <div class="conv-help-text">How can I help you today?</div>
-        <div class="conv-quick-actions">
-          <button class="conv-quick-btn">Debrief my day</button>
-          <button class="conv-quick-btn">What did I miss?</button>
-          <button class="conv-quick-btn">Prep me for my next meeting</button>
-          <button class="conv-quick-btn">Draft a status update</button>
-          <button class="conv-quick-btn">Build a website</button>
+
+        <div class="activity-item">
+          <div class="activity-icon purple">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>
+          </div>
+          <div class="activity-content">
+            <div class="activity-text"><strong>Legal</strong> flagged 2 items in Q2 Board Deck slides 3 &amp; 7</div>
+            <div class="activity-time">5 min ago</div>
+            <button class="activity-action-btn">Review flags</button>
+          </div>
+        </div>
+
+        <div class="activity-section-label">Pending your decision</div>
+
+        <div class="activity-item">
+          <div class="activity-icon red">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          </div>
+          <div class="activity-content">
+            <div class="activity-text">Approve forward-looking language edits on <strong>Q2 Board Deck</strong></div>
+            <div class="activity-time">Blocking Legal review step</div>
+            <button class="activity-action-btn">Open brief</button>
+          </div>
+        </div>
+
+        <div class="activity-section-label">Completed today</div>
+
+        <div class="activity-item">
+          <div class="activity-icon blue">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <div class="activity-content">
+            <div class="activity-text"><strong>Researcher</strong> gathered 4 sources for David Kumar pre-read</div>
+            <div class="activity-time">32 min ago · Artifact ready</div>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon blue">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <div class="activity-content">
+            <div class="activity-text"><strong>Drafter</strong> produced pipeline bullets for slide 5</div>
+            <div class="activity-time">1h ago · Saved to drafts</div>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon blue">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <div class="activity-content">
+            <div class="activity-text"><strong>CoS</strong> drafted reply to Enrico (MLR memo) and Miguel</div>
+            <div class="activity-time">2h ago · 2 drafts saved to Outlook</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid #eee;margin-top:16px;padding-top:14px;">
+          <div class="conv-help-text" style="font-size:13px;margin-bottom:10px;">Quick actions</div>
+          <div class="conv-quick-actions">
+            <button class="conv-quick-btn">Start a new brief</button>
+            <button class="conv-quick-btn">Debrief my day</button>
+            <button class="conv-quick-btn">What did I miss?</button>
+          </div>
         </div>
       </div>
 
@@ -1384,6 +1797,16 @@
         </div>
       </div>
     </aside>
+  </div>
+
+  <!-- R6: Floating Demo Toolbar (separated from product UI) -->
+  <div class="demo-toolbar">
+    <span class="demo-label">Demo</span>
+    <button>⏩ Advance +30m</button>
+    <button>📄 Generate Day Close</button>
+    <button>🔄 Reset</button>
+    <button>▶ Run UC1</button>
+    <button>▶ Run UC2</button>
   </div>
 
 </body>
